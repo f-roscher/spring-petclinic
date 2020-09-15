@@ -2,13 +2,13 @@
 
 #Build application stage
 #We need maven.
-FROM maven:3.5.3-jdk-10
+FROM maven:3.6.3-jdk-11
 ARG JAVA_AGENT_BRANCH=1.x
 ARG JAVA_AGENT_REPO=elastic/apm-agent-java
 
 WORKDIR /usr/src/java-code
 #build the application
-RUN git clone https://github.com/elastic/spring-petclinic.git
+RUN git clone https://github.com/f-roscher/spring-petclinic.git
 WORKDIR /usr/src/java-code/spring-petclinic
 RUN mvn -q -B package -DskipTests
 
@@ -26,7 +26,7 @@ RUN export JAVA_AGENT_BUILT_VERSION=$(mvn -q -Dexec.executable="echo" -Dexec.arg
     && cp -v /usr/src/java-agent-code/elastic-apm-agent/target/elastic-apm-agent-${JAVA_AGENT_BUILT_VERSION}.jar /usr/src/java-app/elastic-apm-agent.jar
 
 
-FROM openjdk:10
+FROM openjdk:11
 
 RUN export
 WORKDIR /app

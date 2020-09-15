@@ -1,7 +1,7 @@
 FROM node:8
 
 WORKDIR /usr/src/
-RUN git clone https://github.com/elastic/spring-petclinic.git
+RUN git clone https://github.com/f-roscher/spring-petclinic.git
 ENV PATH /usr/src/spring-petclinic/client/node_modules/.bin:$PATH
 
 WORKDIR /usr/src/spring-petclinic/frontend/client
