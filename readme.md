@@ -1,3 +1,22 @@
+
+# howto start - local changes
+
+docker-compose has been adapted for our local test with Elasticsearch and apm-server already running. 
+
+The ```docker-compose.yml``` uses some variables. Use some start script like this:
+```
+#!/bin/bash
+
+export APM_PASSWORD=[PW_HERE]
+export ELASTIC_SERVER=[ELASTIC_SERVER]
+export APM_SERVER_NAME=[APM_SERVER]
+
+cd [DIR_WITH_FILES]
+
+docker-compose up
+```
+
+
 # Spring PetClinic Application with the Elastic Stack (spring-framework-petclinic extend )
 
 This version of the Spring Petclinic application utilises the [REST API implementation](https://github.com/spring-petclinic/spring-petclinic-rest) as its core.
@@ -22,6 +41,8 @@ This allows collection of the following metrics:
 - MYSQL, HTTP traffic via Packetbeat **PENDING**
 - Application Logs + NGINX Logs via Filebeat **PENDING**
 - JMX, Docker, Mysql, Nginx metrics via Metricbeat  **PENDING**
+
+
 
 ## Running Petclinic with the Elastic Stack
 
