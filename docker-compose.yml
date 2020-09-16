@@ -26,7 +26,7 @@ services:
         aliases:
           - spring-petclinic-server
     ports:
-      - "127.0.0.1:${SERVER_PORT:-8000}:8000"
+      - "0.0.0.0:${SERVER_PORT:-8000}:8000"
     logging:
       driver: 'json-file'
       options:
@@ -81,7 +81,7 @@ services:
       SERVER_PORT: ${CLIENT_SERVER_PORT:-3000}
       NODE_ENV: production
       ELASTICSEARCH_USERNAME: apm_writer
-      ELASTICSEARCH_URL: http://${ELASTIC_SERVER}:9200
+      ELASTICSEARCH_URL: https://${ELASTIC_SERVER}:9200
       ELASTICSEARCH_PASSWORD: ${APM_PASSWORD}
       PETCLINIC_INTERNAL_URL: "http://spring-petclinic-client:${CLIENT_SERVER_PORT:-3000}"
       PETCLINIC_EXTERNAL_URL: "http://localhost:${CLIENT_SERVER_PORT:-3000}"
@@ -116,7 +116,7 @@ services:
       ELASTIC_APM_SERVICE_NAME: petclinic-address-finder
       ELASTIC_APM_CLIENT_SERVICE_NAME: petclinic-react
       ELASTICSEARCH_USER: apm_writer
-      ELASTICSEARCH_URL: http://${ELASTIC_SERVER}:9200
+      ELASTICSEARCH_URL: https://${ELASTIC_SERVER}:9200
       ELASTICSEARCH_PASSWORD: ${APM_PASSWORD}
 
   spring-client-loadgen:
