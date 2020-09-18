@@ -119,6 +119,8 @@ services:
       ELASTICSEARCH_USER: apm_writer
       ELASTICSEARCH_URL: https://${ELASTIC_SERVER}:9200
       ELASTICSEARCH_PASSWORD: ${APM_PASSWORD}
+      INSECURE_SSL: ${INSECURE_SSL}
+
 
   spring-client-loadgen:
     build:
