@@ -11,6 +11,8 @@ export APM_PASSWORD=[PW_HERE]
 export ELASTIC_SERVER=[ELASTIC_SERVER]
 export APM_SERVER_NAME=[APM_SERVER]
 
+export SERVER_PORT=80
+
 cd [DIR_WITH_FILES]
 
 docker-compose up
